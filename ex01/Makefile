@@ -1,4 +1,4 @@
-NAME = ex00
+NAME = ex01
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
@@ -7,14 +7,16 @@ INCLUDES = Animal.hpp \
 			Cat.hpp \
 			Dog.hpp \
 			WrongAnimal.hpp \
-			WrongCat.hpp
+			WrongCat.hpp \
+			Brain.hpp
 
 FILES =	main \
 		Cat \
 		Dog \
 		Animal \
 		WrongAnimal \
-		WrongCat
+		WrongCat \
+		Brain
 
 
 SRC = $(addsuffix .cpp, $(FILES))

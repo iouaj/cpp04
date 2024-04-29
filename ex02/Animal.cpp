@@ -9,7 +9,7 @@ Animal::Animal(void)
 Animal::Animal(const Animal &ref)
 {
 	std::cout << "\033[1;32mAnimal copy constructor called\033[0m" << std::endl;
-	this->type = ref.getType();
+	this->type = ref.type;
 }
 
 Animal::~Animal(void)
