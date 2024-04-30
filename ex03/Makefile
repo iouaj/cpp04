@@ -6,7 +6,12 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 INCLUDES =
 
 FILES =	main \
-		
+		MateriaSource \
+		Ice \
+		Cure \
+		Character \
+		AMateria
+
 
 SRC = $(addsuffix .cpp, $(FILES))
 

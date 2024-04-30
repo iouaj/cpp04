@@ -8,13 +8,27 @@ MateriaSource::MateriaSource(void)
 
 MateriaSource::MateriaSource(const MateriaSource &ref)
 {
-	for(int i = 0; i < 4; i++)
+	int i = 0;
+	while (i < 4 && this->memory[i])
+	{
 		this->memory[i] = ref.getMemory(i).clone();
+		i++;
+	}
+	while (i < 4)
+	{
+		this->memory[i] = NULL;
+		i++;
+	}
 }
 
 MateriaSource::~MateriaSource(void)
 {
-
+	int	i = 0;
+	while (i < 4)
+	{
+		delete this->memory[i];
+		i++;
+	}
 }
 
 const AMateria &MateriaSource::getMemory(int index) const
@@ -28,17 +42,20 @@ void	MateriaSource::learnMateria(AMateria *m)
 	int i = 0;
 	while (this->memory[i])
 		i++;
-	this->memory[i] = m;
+	if (i < 4)
+		this->memory[i] = m;
 }
 
 AMateria	*MateriaSource::createMateria(std::string const &type)
 {
-	AMateria *to_clone = NULL;
 	int	i = 0;
-	while (this->memory[i])
-	{
-		to_clone = memory[i];
+	while (i < 4 && this->memory[i] && this->memory[i]->getType() != type)
 		i++;
+	if (i == 4 || !this->memory[i])
+	{
+		std::cout << type << " materia does not exist" << std::endl;
+		return 0;
 	}
-	return (to_clone->clone());
+	std::cout << type << " materia created." << std::endl;
+	return this->memory[i]->clone();
 }

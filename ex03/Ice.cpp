@@ -5,7 +5,7 @@ Ice::Ice(void)
 	this->type = "ice";
 }
 
-Ice::Ice(const Ice &ref)
+Ice::Ice(const Ice &ref) : AMateria(ref)
 {
 	this->type = ref.getType();
 }

@@ -5,7 +5,7 @@ Cure::Cure(void)
 	this->type = "cure";
 }
 
-Cure::Cure(const Cure &ref)
+Cure::Cure(const Cure &ref) : AMateria(ref)
 {
 	this->type = ref.getType();
 }
@@ -17,7 +17,7 @@ Cure::~Cure(void)
 
 Cure	*Cure::clone(void) const
 {
-	return (new Cure())
+	return (new Cure());
 }
 
 void	Cure::use(ICharacter &target)
