@@ -24,3 +24,8 @@ void	Cure::use(ICharacter &target)
 {
 	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }
+
+void	Cure::operator=(const Cure &ref)
+{
+	this->type = ref.type;
+}

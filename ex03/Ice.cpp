@@ -24,3 +24,8 @@ void	Ice::use(ICharacter &target)
 {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }
+
+void	Ice::operator=(const Ice &ref)
+{
+	this->type = ref.type;
+}

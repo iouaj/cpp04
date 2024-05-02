@@ -32,3 +32,8 @@ void	AMateria::use(ICharacter& target)
 {
 	std::cout << this->type << " use something on " << target.getName() << "." << std::endl;
 }
+
+void	AMateria::operator=(const AMateria &ref)
+{
+	this->type = ref.type;
+}

@@ -59,3 +59,26 @@ AMateria	*MateriaSource::createMateria(std::string const &type)
 	std::cout << type << " materia created." << std::endl;
 	return this->memory[i]->clone();
 }
+
+void	MateriaSource::operator=(const MateriaSource &ref)
+{
+	int i = 0;
+
+	while (i < 4)
+	{
+		delete this->memory[i];
+		i++;
+	}
+
+	i = 0;
+	while (i < 4 && this->memory[i])
+	{
+		this->memory[i] = ref.getMemory(i).clone();
+		i++;
+	}
+	while (i < 4)
+	{
+		this->memory[i] = NULL;
+		i++;
+	}
+}

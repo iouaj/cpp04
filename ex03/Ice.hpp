@@ -12,6 +12,8 @@ class Ice : public AMateria
 
 		Ice		*clone(void) const;
 		void	use(ICharacter &target);
+
+		void	operator=(const Ice &ref);
 };
 
 #endif
